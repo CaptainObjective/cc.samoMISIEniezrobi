@@ -13,5 +13,5 @@ app.use (methodOverride('_method'));
 app.set ("view engine", "pug");
 const indexRoutes = require ('./routes/index');
 app.use ('/', indexRoutes);
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 app.listen (port, () =>console.log(`Jestem podlaczona do serwera ${port} bijacz`));
