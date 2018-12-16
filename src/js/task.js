@@ -16,6 +16,7 @@ class Task {
     }
     render() {
         this.element.innerHTML = `<p>${this.name}</p>`;
+        this.element.innerHTML += `<button class="button">asdasdsds</button>`;
         document.getElementById('root').appendChild(this.element);
     }
 }
