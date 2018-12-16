@@ -11,7 +11,7 @@ block content
                 .card-body
                     form(action="/addme", method="POST")
                         .form-group
-                            label(for='labeltodo') Dodaj zadanie:
+                            label(for='labeltodo') Wprowadź treść:
                             input.form-control#labeltodo(type='text', name="title")
                         button(type="submit").btn.btn-primary.btn-block
                             i.fas.fa-plus.pl-1 
@@ -22,14 +22,14 @@ block content
             table.table.table-striped
                 thead
                     tr
-                    th(scope='col') ID
+                    
                     th(scope='col') Zadanie
                     th(scope='col') Edytuj
                     th(scope='col') Usuń
                 tbody
                     each todo in todos
                         tr
-                             th(scope='row')= todo.id
+                             
                              td= todo.title
                              td 
                                 a(href="/editme/"+ todo.id).btn.btn-info.btn-sm 
