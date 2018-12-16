@@ -2,11 +2,14 @@ import TaskGroup from './taskGroup'
 class MainView {
 
     constructor() {
+        this.tasklist1 = ['zadanie1', 'zadanie2', 'zadanie3', 'zadanie4'];
+        this.tasklist2 = ['zadanie1', 'zadanie2', 'zadanie3', 'zadanie4', 'zadanie.5'];
+        this.tasklist3 = ['zadanie1', 'zadanie2', 'zadanie3'];
         console.log('MainView Loaded...');
         this.work = new TaskGroup(`work`, 'Praca', `Some quick example text to build on the card title and make up the bulk of the card's
-        content.`, 'taskGroup', 'bg-primary');
-        this.shop = new TaskGroup(`shop`, 'Lista zakupów', ``, 'taskGroup', 'bg-success');
-        this.visit = new TaskGroup(`visits`, 'Do Odwiedzenia', ``, 'taskGroup', 'bg-secondary');
+        content.`, 'taskGroup', 'pink', this.tasklist1.length);
+        this.shop = new TaskGroup(`shop`, 'Lista zakupów', ``, 'taskGroup', 'orange', this.tasklist2.length);
+        this.visit = new TaskGroup(`visits`, 'Do Odwiedzenia', ``, 'taskGroup', 'green', this.tasklist3.length);
     }
 
     render() {
