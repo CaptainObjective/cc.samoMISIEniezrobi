@@ -95,4 +95,18 @@ body{
     background-color: #9ec9eb;
     color: #2e99cd;
     border-color: #2e99cd;
+
+.button{
+    position: relative;
+    left: 328px;
+    border-bottom:3px solid pink;
+    background-color: brown;
+
+}
+.taskColor{
+    height: 10%;
+    width: 80%;
+    background-color: palevioletred;
+    border-radius: 5px;
+
 }
