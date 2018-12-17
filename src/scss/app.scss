@@ -1,15 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
-
-//Kolorki
-$pink: #f49ac0;
-$darkPink: #ce3168;
-$green: #a9d48c;
-$darkGreen: #2c9b68;
-$orange: #fecc99;
-$darkOrange: #d16632;
-$blue: #9ec9eb;
-$darkBlue: #2e99cd;
-
+@import "variables";
+@import "mixins";
 
 *{
     font-family: 'Fjalla One', sans-serif;
@@ -22,6 +13,12 @@ i{
 
 h1{
     color: #fff;
+}
+
+h2{
+    @include mQ(1082px){
+        font-size: 28px;
+    }
 }
 
 body{
@@ -37,51 +34,53 @@ body{
     height: 80vh;
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+    @include mQ(990px){
+        height: fit-content;
+        justify-content: flex-start;
+    }
+    @include mQ(650px){
+        flex-direction: column;
+        height: fit-content;
+        flex-wrap: nowrap;
+    }
 }
 
 .list {
-    width: 20%;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 20px;
+    @include taskGroup;
     min-height: 70%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transition: all .2s ease-in-out;
      * {
          margin: 15px 0 15px 0;
      }
      h4 {
-         margin-top: 0;
-         background: none;
-         font-size: 20px;
+        margin-top: 0;
+        background: none;
+        font-size: 20px;
      }
+     @include mQ(990px){
+        @include tabletView;
+     }
+    @include mQ(650px) {
+        @include mobileView;
+    }
 }
 
 .add{
-     width: 20%;
-     padding: 10px;
-     border-radius: 20px;
-     min-height: 50%;
-     display: flex;
-     flex-direction: column;
-     transition: all .2s ease-in-out;
+     @include taskGroup;
      justify-content: center;
-     align-items: center;
-     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+     min-height: 50%;
      *{
-         margin: 10px 0 10px 0;
+        margin: 10px 0 10px 0;
      }
-}
-
-.list:hover,
-.add:hover {
-    transform: scale(1.05);
-    cursor: pointer;
+     @include mQ(990px){
+        align-self: stretch;
+        @include tabletView;
+     }
+     @include mQ(650px){
+         @include mobileView;
+     }
 }
 
 .line {
@@ -100,18 +99,36 @@ body{
     background-color: $pink;
     color: $darkPink;
     border-color: $darkPink;
+    @include mQ(990px){
+        &:hover {
+            background-color: darken($pink, 5);
+            color: darken($darkPink, 5);
+        }
+    }
 }
 
 .green{
     background-color: $green;
     color: $darkGreen;
     border-color: $darkGreen;
+    @include mQ(990px) {
+        &:hover {
+            background-color: darken($green, 5);
+            color: darken($darkGreen, 5);
+        }
+    }
 }
 
 .orange{
     background-color: $orange;
     color: $darkOrange;
     border-color: $darkOrange;
+    @include mQ(990px) {
+        &:hover {
+            background-color: darken($orange, 5);
+            color: darken($darkOrange, 5);
+        }
+    }
 
 }
 
@@ -119,6 +136,12 @@ body{
     background-color: $blue;;
     color: $darkBlue;
     border-color: $darkBlue;
+    @include mQ(990px) {
+        &:hover {
+            background-color: darken($blue, 5);
+            color: darken($darkBlue, 5);
+        }
+    }
 }
 
 .button{
@@ -133,61 +156,4 @@ body{
     width: 80%;
     background-color: palevioletred;
     border-radius: 5px;
-
-}
-
-@media only screen and (max-width: 1082px){
-    h2{
-        font-size: 28px;
-    }
-}
-
-@media only screen and (max-width: 990px){
-    #root {
-        height: fit-content;
-        justify-content: flex-start;
-    }
-
-    .add{
-        align-self: stretch;
-    }
-
-    .list, 
-    .add{
-        border-radius: 0;
-        flex-basis: 50%;
-        box-shadow: none;
-    }
-}
-
-@media only screen and (max-width: 650px){
-
-    #root{
-        flex-direction: column;
-        height: fit-content;
-        flex-wrap: nowrap;
-    }
-
-    .list, 
-    .add{
-        box-shadow: none;
-        width: 100%;
-        flex-direction: row;
-        justify-content: center;
-        * {
-            flex-basis: 50%;
-        }
-        i {
-            text-align: center;
-        }
-         h4 {
-             display: none;
-         }
-         .line {
-             display: none;
-         }
-         .progressBarBorder {
-             display: none;
-         }
-    }
 }
