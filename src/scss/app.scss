@@ -133,7 +133,24 @@ body{
 
 }
 
+@media only screen and (max-width: 1082px){
+    h2{
+        font-size: 28px;
+    }
+}
+
 @media only screen and (max-width: 990px){
+    #root {
+        height: fit-content;
+        justify-content: flex-start;
+    }
+
+    .list{
+        flex-basis: 50%;
+    }
+}
+
+@media only screen and (max-width: 650px){
 
     #root{
         flex-direction: column;
@@ -147,12 +164,12 @@ body{
         justify-content: center;
     }
 
-    .list img{
-        flex-basis: 30%;
+    .list *{
+        flex-basis: 50%;
     }
 
-    .list h2{
-
+    .list i{
+        text-align: center;
     }
 
     .line{
