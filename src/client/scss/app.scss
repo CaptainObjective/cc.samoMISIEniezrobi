@@ -3,6 +3,8 @@
 @import "mixins";
 
 *{
+    margin: 0;
+    padding: 0;
     font-family: 'Fjalla One', sans-serif;
     box-sizing: border-box;
 }
@@ -14,7 +16,7 @@ i{
 h1{
     color: #fff;
 }
-
+ 
 h2{
     @include mQ(1082px){
         font-size: 28px;
@@ -24,6 +26,11 @@ h2{
 body{
     background-image: url('../img/misieBG1.jpg');
     background-size: cover;
+}
+
+.wrapper{
+    width: 85vw;
+    margin: auto;
 }
 
 #topbar{

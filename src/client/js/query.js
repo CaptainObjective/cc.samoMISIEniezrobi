@@ -8,7 +8,8 @@ class Query {
         //return tasks
     }
     static addTask() {
-        //Zapytanie typu post
+        //Zapytanie typu post sadasdasd
+        
     }
     static deleteTask() {
         //Zapytanie typu delete
@@ -18,7 +19,7 @@ class Query {
     }
 
     //to poniżej na deser
-    static getTaskGroup() {
+    static getTaskGroup() { 
         //Zapytanie typu get
     }
     static addTaskGroup() {

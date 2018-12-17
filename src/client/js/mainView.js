@@ -12,7 +12,8 @@ class MainView {
         this.visit = new TaskGroup(`visits`, 'Do Odwiedzenia', ``, 'list', 'green', this.tasklist3.length);
         this.add = new TaskGroup('', 'Dodaj', '', 'add', 'blue', 0);
     }
-
+ 
+     
     render() {
         document.getElementById('root').innerHTML = "";
         this.work.render();
