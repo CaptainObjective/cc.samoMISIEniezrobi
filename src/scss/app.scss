@@ -5,7 +5,10 @@
 }
 
 h1{
+    line-height: 373%;
     color: #fff;
+    size: 2em;
+
 }
 
 body{
@@ -97,16 +100,32 @@ body{
     border-color: #2e99cd;
 }
 .button{
-    position: relative;
-    left: 328px;
-    border-bottom:3px solid pink;
-    background-color: brown;
+  background: transparent;
+  width: 10%;
+  height: 80%;
+  border:transparent;
+    
 
 }
-.taskColor{
-    height: 10%;
-    width: 80%;
-    background-color: palevioletred;
-    border-radius: 5px;
-
+.button:hover {
+    transform: scale(1.2);
 }
+button:active,
+button:focus {
+
+    -moz-outline: none;
+    outline: none;
+    /* CSS 3 */
+   // ie-dummy: expression(this.hideFocus=true);
+    /* IE >= 5.5 */
+}
+
+ .icons{
+width: 35%;
+height: 90%;
+}
+ p{
+     width: 60%;
+     height: 90%;
+     display: inline-block;
+ }
