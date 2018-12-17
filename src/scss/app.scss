@@ -50,27 +50,35 @@ body{
     border-radius: 20px;
     min-height: 70%;
     transition: all .2s ease-in-out;
+     * {
+         margin: 15px 0 15px 0;
+     }
+     h4 {
+         margin-top: 0;
+         background: none;
+         font-size: 20px;
+     }
 }
 
-.list:hover {
+.add{
+     width: 20%;
+     padding: 10px;
+     border-radius: 20px;
+     min-height: 50%;
+     display: flex;
+     flex-direction: column;
+     transition: all .2s ease-in-out;
+     justify-content: center;
+     align-items: center;
+     *{
+         margin: 10px 0 10px 0;
+     }
+}
+
+.list:hover,
+.add:hover {
     transform: scale(1.05);
     cursor: pointer;
-}
-
-.list img {
-    width: 90px;
-    margin-top: 15px;
-}
-
-.list * {
-    margin: 15px 0 15px 0;
-}
-
-.list h4{
-    margin-top: 0;
-    background: none;
-    font-size: 20px;
-    
 }
 
 .line {
@@ -83,14 +91,6 @@ body{
     width: 60%;
     height: 15px;
     border: 4px solid;
-}
-
-.taskGroup{
-    min-width: 40%;
-    height: 50%;
-    :hover{
-        cursor: pointer;
-    }
 }
 
 .pink{
@@ -145,7 +145,11 @@ body{
         justify-content: flex-start;
     }
 
-    .list{
+    .add{
+        align-self: stretch;
+    }
+
+    .list, .add{
         flex-basis: 50%;
     }
 }
@@ -158,30 +162,25 @@ body{
         flex-wrap: nowrap;
     }
 
-    .list{
+    .list, 
+    .add{
         width: 100%;
         flex-direction: row;
         justify-content: center;
+        * {
+            flex-basis: 50%;
+        }
+        i {
+            text-align: center;
+        }
+         h4 {
+             display: none;
+         }
+         .line {
+             display: none;
+         }
+         .progressBarBorder {
+             display: none;
+         }
     }
-
-    .list *{
-        flex-basis: 50%;
-    }
-
-    .list i{
-        text-align: center;
-    }
-
-    .line{
-        display: none;
-    }
-
-    .progressBarBorder{
-        display: none;
-    }
-
-    h4{
-        display: none;
-    }
-
 }
