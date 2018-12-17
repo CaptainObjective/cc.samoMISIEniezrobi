@@ -1,7 +1,23 @@
 @import "~bootstrap/scss/bootstrap";
 
+//Kolorki
+$pink: #f49ac0;
+$darkPink: #ce3168;
+$green: #a9d48c;
+$darkGreen: #2c9b68;
+$orange: #fecc99;
+$darkOrange: #d16632;
+$blue: #9ec9eb;
+$darkBlue: #2e99cd;
+
+
 *{
     font-family: 'Fjalla One', sans-serif;
+    box-sizing: border-box;
+}
+
+i{
+    font-size: 110px;
 }
 
 h1{
@@ -27,6 +43,7 @@ body{
 
 .list {
     width: 20%;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,11 +54,12 @@ body{
 
 .list:hover {
     transform: scale(1.05);
+    cursor: pointer;
 }
 
 .list img {
     width: 90px;
-    margin-top: 15%;
+    margin-top: 15px;
 }
 
 .list * {
@@ -50,6 +68,9 @@ body{
 
 .list h4{
     margin-top: 0;
+    background: none;
+    font-size: 20px;
+    
 }
 
 .line {
@@ -73,28 +94,29 @@ body{
 }
 
 .pink{
-    background-color: #f49ac0;
-    color: #ce3168;
-    border-color: #ce3168;
+    background-color: $pink;
+    color: $darkPink;
+    border-color: $darkPink;
 }
 
 .green{
-    background-color: #a9d48c;
-    color: #2c9b68;
-    border-color: #2c9b68;
+    background-color: $green;
+    color: $darkGreen;
+    border-color: $darkGreen;
 }
 
 .orange{
-    background-color: #fecc99;
-    color: #d16632;
-    border-color: #d16632;
+    background-color: $orange;
+    color: $darkOrange;
+    border-color: $darkOrange;
 
 }
 
 .blue{
-    background-color: #9ec9eb;
-    color: #2e99cd;
-    border-color: #2e99cd;
+    background-color: $blue;;
+    color: $darkBlue;
+    border-color: $darkBlue;
+}
 
 .button{
     position: relative;
@@ -108,5 +130,41 @@ body{
     width: 80%;
     background-color: palevioletred;
     border-radius: 5px;
+
+}
+
+@media only screen and (max-width: 990px){
+
+    #root{
+        flex-direction: column;
+        height: fit-content;
+        flex-wrap: nowrap;
+    }
+
+    .list{
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .list img{
+        flex-basis: 30%;
+    }
+
+    .list h2{
+
+    }
+
+    .line{
+        display: none;
+    }
+
+    .progressBarBorder{
+        display: none;
+    }
+
+    h4{
+        display: none;
+    }
 
 }
