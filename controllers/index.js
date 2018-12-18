@@ -15,9 +15,10 @@ const postIndex = (req, res) => {
     });
     newTodo.save((err) => {
         if (err) console.log(err);
-        res.redirect('/');
-    })
 
+    })
+    res.redirect('/');
+    res.send('added');
 }
 
 const deleteIndex = (req, res) => {
