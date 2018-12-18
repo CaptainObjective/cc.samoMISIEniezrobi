@@ -9,6 +9,10 @@ const getIndex = (req, res) => {
     })
 
 };
+const getIndexTest = (req, res) => {
+    console.log(req);
+    res.redirect('/');// trzeba rozkminic dlaczego dziala tylko dla zapytan bez body
+}
 const postIndex = (req, res) => {
     const newTodo = new Todo({
         title: req.body.title
@@ -31,6 +35,7 @@ const deleteIndex = (req, res) => {
 }
 module.exports = {
     getIndex: getIndex,
+    getIndexTest: getIndexTest,
     postIndex: postIndex,
     deleteIndex: deleteIndex
 }
