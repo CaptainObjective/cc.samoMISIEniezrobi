@@ -4,7 +4,11 @@ class Query {
     }
     static getTask() {
         //Zapytanie typu get
-
+        fetch(url).then(function (response) {
+            response.text().then(function (text) {
+                poemDisplay.textContent = text;
+            });
+        });
         //return tasks
     }
     static addTask() {

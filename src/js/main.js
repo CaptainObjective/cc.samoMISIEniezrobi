@@ -4,7 +4,7 @@ import MainView from './mainView';
 
 
 const onload = () => {
-    console.log('Loaded...');
+    console.log('Loaded..1.');
     const mainView = new MainView;
     mainView.render();
 

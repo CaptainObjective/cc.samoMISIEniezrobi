@@ -2,10 +2,10 @@ const path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: './src/client/js/main.js',
+    entry: './src/js/main.js',
     output: {
-        publicPath: '/',
-        path: path.resolve(__dirname),
+        publicPath: '/views',
+        path: path.resolve(__dirname + '/views'),
         filename: 'bundle.js'
     },
     resolve: {
@@ -42,11 +42,17 @@ module.exports = {
                     }
                 ]
             },
-             {
-                 test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
-                 loader: 'url-loader?limit=100000'
-             }
-
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        publicPath: '../',
+                        useRelativePaths: true
+                    }
+                }
+            }
 
         ]
     }

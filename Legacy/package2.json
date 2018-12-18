@@ -1,0 +1,33 @@
+{
+  "name": "cc.samomisieniezrobi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "html2pug": "html2pug < html2pug.html > html2pug.pug -f"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CaptainObjective/cc.samoMISIEniezrobi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CaptainObjective/cc.samoMISIEniezrobi/issues"
+  },
+  "homepage": "https://github.com/CaptainObjective/cc.samoMISIEniezrobi#readme",
+  "devDependencies": {
+    "html2pug": "^2.0.1",
+    "nodemon": "^1.18.9"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.4.0",
+    "pug": "^2.0.3"
+  }
+}
