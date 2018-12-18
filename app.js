@@ -12,13 +12,16 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(methodOverride('_method'));
 // app.set("view engine", "pug");
+// app.set('views', __dirname + '/views');
+// app.engine('html', require('ejs').renderFile);
+app.use(express.static('views'));
 const indexRoutes = require('./routes/index');
-console.log(path);
-app.get('/', function (req, res) {
-    console.log(path);
-    res.sendFile(path.join(__dirname + '/index.html'));
-});
 
-// app.use('/', indexRoutes);
+// app.get('/', function (req, res) {
+//     console.log(path);
+//     res.sendFile(path.join(__dirname + '/index.html'));
+// });
+
+app.use('/', indexRoutes);
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Jestem podlaczona do serwera ${port} bijacz`));

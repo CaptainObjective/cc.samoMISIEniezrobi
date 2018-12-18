@@ -3,7 +3,7 @@ const getIndex = (req, res) => {
     Todo.find({}, (err, todos) => {
         if (err) console.log(err);
         console.log(todos);
-        res.render('index', {
+        res.render('index.html', {
             todos: todos
         })
     })
