@@ -9,18 +9,14 @@ mongoose.connect('mongodb://admin:admin62D.@ds121652.mlab.com:21652/samomisienie
 });
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(methodOverride('_method'));
 // app.set("view engine", "pug");
 // app.set('views', __dirname + '/views');
-// app.engine('html', require('ejs').renderFile);
+app.use(bodyParser.json());
 app.use(express.static('views'));
 const indexRoutes = require('./routes/index');
 
-// app.get('/', function (req, res) {
-//     console.log(path);
-//     res.sendFile(path.join(__dirname + '/index.html'));
-// });
 
 app.use('/', indexRoutes);
 const port = process.env.PORT || 3000;

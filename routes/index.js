@@ -3,7 +3,7 @@ const router = express.Router();
 const indexController = require('../controllers/index');
 const editController = require('../controllers/edit');
 router.get('/', indexController.getIndex);
-router.get('/test', indexController.getIndexTest);
+router.post('/test', indexController.getIndexTest);
 
 router.post('/addme', indexController.postIndex);
 router.delete('/deleteme/:id', indexController.deleteIndex);

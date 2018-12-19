@@ -6,10 +6,14 @@ class Query {
     static test() {
         //Zapytanie typu post
         console.log('fetchin');
-        fetch('/test', {
-            method: 'get',
-            // body: JSON.stringify({ title: 'new task' })
-        }).then((res) => console.log(res)) //dziala bo robi redirect
+        fetch('test', {
+            method: 'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ "title": "new task" })
+        }).then((res) => res.json()).then(data => console.log(data)).catch(error => console.error(error));
 
     }
 

@@ -10,8 +10,9 @@ const getIndex = (req, res) => {
 
 };
 const getIndexTest = (req, res) => {
-    console.log(req);
-    res.redirect('/');// trzeba rozkminic dlaczego dziala tylko dla zapytan bez body
+    console.log(req.body);
+    res.send({ "req.body": "testy nuklearne" });
+    // res.redirect('/');  // trzeba rozkminic dlaczego dziala tylko dla zapytan bez body; bo to było zapytanie get one nie maja body
 }
 const postIndex = (req, res) => {
     const newTodo = new Todo({

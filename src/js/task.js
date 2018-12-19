@@ -12,7 +12,7 @@ class Task {
     }
     click = () => {
         //co ma sie zadziać po kliknieciu
-        console.log(this);
+        // console.log(this);
         Query.test();
     }
     render() {
