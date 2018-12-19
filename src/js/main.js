@@ -1,12 +1,16 @@
-import 'bootstrap'
-import './../scss/app.scss'
+import 'bootstrap';
+import './../scss/app.scss';
+import Query from './query';
 import MainView from './mainView';
 
 
 const onload = () => {
-    console.log('Loaded..1.');
-    const mainView = new MainView;
-    mainView.render();
+    console.log('Loading...');
+
+    Query.getTask().then(tasks => {
+        const mainView = new MainView(tasks);
+        mainView.render();
+    })
 
 }
 

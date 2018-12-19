@@ -1,16 +1,18 @@
-import TaskGroup from './taskGroup'
+import TaskGroup from './taskGroup';
+
 class MainView {
 
-    constructor() {
+    constructor(taskList) {
         this.tasklist1 = ['zadanie1', 'zadanie2', 'zadanie3', 'zadanie4'];
         this.tasklist2 = ['zadanie1', 'zadanie2', 'zadanie3', 'zadanie4', 'zadanie.5'];
         this.tasklist3 = ['zadanie1', 'zadanie2', 'zadanie3'];
         console.log('MainView Loaded...');
-        this.work = new TaskGroup(`work`, 'Praca', `Some quick example text to build on the card title and make up the bulk of the card's
-        content.`, 'list', 'pink', this.tasklist1.length);
-        this.shop = new TaskGroup(`shop`, 'Lista zakupów', ``, 'list', 'orange', this.tasklist2.length);
-        this.visit = new TaskGroup(`visits`, 'Do Odwiedzenia', ``, 'list', 'green', this.tasklist3.length);
-        this.add = new TaskGroup('', 'Dodaj', '', 'add', 'blue', 0);
+        console.log(taskList);// mainView otrzymuje całą liste tasków; Pamietać by przekazać ją dalej
+
+        this.work = new TaskGroup(`work`, 'Praca', 'list', 'pink', this.tasklist1.length, taskList);
+        this.shop = new TaskGroup(`shop`, 'Lista zakupów', 'list', 'orange', this.tasklist2.length, taskList);
+        this.visit = new TaskGroup(`visits`, 'Do Odwiedzenia', 'list', 'green', this.tasklist3.length, taskList);
+        this.add = new TaskGroup('', 'Dodaj', 'add', 'blue', 0);
     }
 
     render() {

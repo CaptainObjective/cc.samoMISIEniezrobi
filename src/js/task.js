@@ -12,8 +12,8 @@ class Task {
     }
     click = () => {
         //co ma sie zadziać po kliknieciu
-        // console.log(this);
-        Query.test();
+        console.log(this.name);
+        // Query.test();
     }
     render() {
         this.element.innerHTML = `<p>${this.name}</p>`;

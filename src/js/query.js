@@ -6,7 +6,7 @@ class Query {
     static test() {
         //Zapytanie typu post
         console.log('fetchin');
-        fetch('test', {
+        fetch('test', { // to jest tylko testowy endpoint w normalnym trzeba będzie zmienić
             method: 'post',
             headers: {
                 'Accept': 'application/json',
@@ -19,7 +19,10 @@ class Query {
 
     static getTask() {
         //Zapytanie typu get
-
+        //Samo getTask musi byc promisem a nie zwykla funkcja zeby wszystko dzialalo jak nalezy
+        return new Promise((resolve, reject) => {
+            fetch('tasks').then((res) => res.json()).then(data => resolve(data)).catch(error => reject(error));
+        })
         //return tasks
     }
     static addTask() {

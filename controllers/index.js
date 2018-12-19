@@ -1,11 +1,13 @@
 const Todo = require('../models/Todo');
+
 const getIndex = (req, res) => {
     Todo.find({}, (err, todos) => {
         if (err) console.log(err);
         console.log(todos);
-        res.render('index.html', {
-            todos: todos
-        })
+        // res.render('index.html', {
+        //     todos: todos
+        // })
+        res.send(todos);
     })
 
 };
