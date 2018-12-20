@@ -1,5 +1,7 @@
 import Query from './query';
-
+import check from '../img/003-check.png';
+import rubbish from '../img/001-rubbish.png';
+import done from '../img/002-doodles.png';
 class Task {
 
     constructor(name, bgcolor) {
@@ -9,6 +11,7 @@ class Task {
         this.element.id = this.name;
         this.element.className = `btn btn-primary btn-lg btn-block ${this.bgcolor}`
         this.element.onclick = this.click;
+    
     }
     click = () => {
         //co ma sie zadziać po kliknieciu
@@ -16,8 +19,11 @@ class Task {
         // Query.test();
     }
     render() {
-        this.element.innerHTML = `<p>${this.name}</p>`;
-        document.getElementById('root').appendChild(this.element);
+       this.element.innerHTML = `<button class="button done"><img class="icons" src="${check}"/></button>
+        <p>${this.name}</p> 
+        <button class="button"> <img  class="icons"  src="${rubbish}"/></button> <button class="button">
+        <img class="icons" src="${done}"/></button>`;
+       document.getElementById('root').appendChild(this.element);
     }
 }
 
