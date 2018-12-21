@@ -2,7 +2,7 @@
     "name": "cc.samomisieniezrobi",
     "version": "1.0.0",
     "description": "To Do App",
-    "main": "index.js",
+    "main": "app.js",
     "scripts": {
         "start": "node app.js",
         "front": "webpack --watch",
