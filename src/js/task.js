@@ -13,7 +13,7 @@ class Task {
     click = () => {
         //co ma sie zadziać po kliknieciu
         console.log(this.name);
-        // Query.test();
+        // Query.test();    
     }
     render() {
         this.element.innerHTML = `<p>${this.name}</p>`;

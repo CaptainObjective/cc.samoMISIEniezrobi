@@ -14,7 +14,6 @@ class Query {
             },
             body: JSON.stringify({ "title": "new task" })
         }).then((res) => res.json()).then(data => console.log(data)).catch(error => console.error(error));
-
     }
 
     static getTask() {
@@ -25,14 +24,37 @@ class Query {
         })
         //return tasks
     }
-    static addTask() {
+
+    static addTask(taskName) {
         //Zapytanie typu post
+        fetch('/addme', { // to jest tylko testowy endpoint w normalnym trzeba będzie zmienić
+            method: 'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ "title": `${taskName}` })
+         }).then((res) => console.log(res))
     }
-    static deleteTask() {
+    //jak przyjdzie status 200 
+
+    static deleteTask(taskID) {
         //Zapytanie typu delete
+        fetch(`/deleteme/${taskID}`, {
+            method: 'delete'
+        }).then((res) => console.log(res));
     }
-    static updateTask() {
+
+    static updateTask(taskID, taskName) {
         //Zapytanie typu update jak sie uda
+        fetch(`/editme/${taskID}`, { // to jest tylko testowy endpoint w normalnym trzeba będzie zmienić
+            method: 'put',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ "title": `${taskName}` })
+        }).then((res) => console.log(res))
     }
 
     //to poniżej na deser
