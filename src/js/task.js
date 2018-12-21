@@ -2,6 +2,7 @@ import Query from './query';
 import check from '../img/003-check.png';
 import rubbish from '../img/001-rubbish.png';
 import done from '../img/002-doodles.png';
+import bear from '../img/bear.png';
 class Task {
 
     constructor(name, bgcolor) {
@@ -13,13 +14,24 @@ class Task {
         this.element.onclick = this.click;
     
     }
-    click = () => {
+
+
+
+    click = (e) => {
         //co ma sie zadziać po kliknieciu
-        console.log(this.name);
-        // Query.test();
+        console.log(e.target.className);
+     if (e.target.className==="icons done" ){
+e.target.parentNode.nextSibling.nextSibling.style.textDecoration = "line-through";
+
+e.target.src=`${bear}`;
+
+
     }
+    }
+        // Query.test();
+    
     render() {
-       this.element.innerHTML = `<button class="button done"><img class="icons" src="${check}"/></button>
+       this.element.innerHTML = `<button class="button"><img class="icons done" src="${check}"/></button>
         <p>${this.name}</p> 
         <button class="button"> <img  class="icons"  src="${rubbish}"/></button> <button class="button">
         <img class="icons" src="${done}"/></button>`;
