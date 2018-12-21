@@ -97,7 +97,7 @@ body{
     margin-bottom: 15px;
 }
 .progressBarBorder {
-    position: absolute;
+    position: relative;
     left: 20%;
     top: -100%;
     // transform: translateY(-140%);
@@ -107,9 +107,9 @@ body{
 }
 .progressBarProgress {
     position: absolute;
-    left: 20%;
-    top: -100%;
-    // transform: translateY(-140%);
+    left: 0%;
+    bottom: -0;
+    transform: translateY(125%);
     width: 60%;
     height: 15px;
     width: 0;
