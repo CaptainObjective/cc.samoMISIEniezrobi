@@ -27,10 +27,8 @@ class taskGroup {
                                         <h2>${this.taskGroupName}</h2>
                                         <div class="line"></div>
                                         <div class = "progressBar">
-                                            <div class = "progressBarBorder">
-                                                <div class = "progressBarProgress barBG${this.bgcolor}" style = "width: ${progress}%"></div>
-                                            </div>
-                                            
+                                            <div class = "progressBarBorder"></div>
+                                            <div class = "progressBarProgress barBG${this.bgcolor}" style = "width: ${progress}%"></div>
                                         </div>
                                         <h4>4/${this.taskList.length}</h4>`
             document.getElementById('root').appendChild(this.element);
