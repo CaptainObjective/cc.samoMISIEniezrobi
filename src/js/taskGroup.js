@@ -19,7 +19,7 @@ class taskGroup {
         taskView.render();
     }
     render() {
-        const progress = Math.round((9 / this.taskList.length) * 100); //zamiast tej '4' będize trzeba dodać zmienną z ilościa wykonanych tasków
+        const progress = Math.round((4 / this.taskList.length) * 100); //zamiast tej '4' będize trzeba dodać zmienną z ilościa wykonanych tasków
         console.log(progress);
         // Oczywiscie caly ten HTML można zmienić ja to zakodowalem tylko by pokazać koncepcje
         if (this.taskGroupStyle == 'list') {
