@@ -42,7 +42,7 @@ class Query {
         //Zapytanie typu delete
         fetch(`/deleteme/${taskID}`, {
             method: 'delete'
-        }).then((res) => console.log(res));
+        }).then(console.log('Task Deleted'));
     }
 
     static updateTask(taskID, taskName) {

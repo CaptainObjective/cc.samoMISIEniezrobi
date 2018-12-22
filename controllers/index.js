@@ -33,6 +33,7 @@ const deleteIndex = (req, res) => {
     Todo.findByIdAndDelete(id, (err) => {
         if (err) console.log(err);
         res.redirect('/');
+        res.end();
     });
 
 }

@@ -8,7 +8,7 @@ class MainView {
 
         this.work = new TaskGroup(`work`, 'Praca', 'list', 'pink', taskList);
         this.shop = new TaskGroup(`shop`, 'Lista zakupów', 'list', 'orange', taskList);
-        this.visit = new TaskGroup(`visits`, 'Do Odwiedzenia', 'list', 'green', taskList);
+        this.visit = new TaskGroup(`visit`, 'Do Odwiedzenia', 'list', 'green', taskList);
         //this.add = new TaskGroup('', 'Dodaj', 'add', 'blue', 0);
     }
 
