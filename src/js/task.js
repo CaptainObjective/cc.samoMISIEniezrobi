@@ -1,4 +1,4 @@
-import Query from './query';
+import Query from './query'; 
 import check from '../img/003-check.png';
 import rubbish from '../img/001-rubbish.png';
 import change from '../img/002-doodles.png';
@@ -13,6 +13,7 @@ class Task {
         this.element.className = `btn btn-primary btn-lg btn-block ${this.bgcolor}`
         this.element.onclick = this.click;
         this.refreshView=refreshView;
+        this.czyupdate = false;
     }
 
     click = (e) => {
@@ -21,22 +22,30 @@ class Task {
         Query.addTask(e.target.parentNode.nextSibling.nextSibling.firstChild.value);
         location.reload();
     }
-     if (e.target.className==="icons check" ){
+     if (e.target.className==="icons check" ){ 
         e.target.parentNode.nextSibling.nextSibling.style.textDecoration = "line-through";
         e.target.src=`${bear}`;
 
     }
     else if (e.target.className==="icons rubbish" ){
-        // console.log();
+
         Query.deleteTask(this.id);
-        // this.refreshView();
+        //this.refreshView();
         location.reload();
 
 
     }
+    
     else if (e.target.className==="icons change" ){
-        // console.log();
- 
+        // najpierw trzeba kliknac 'icons change', pozniej edytowac zadanie i pozniej znowu kliknac 'icons change'
+        if(this.czyupdate ==false){
+            e.target.parentNode.previousSibling.previousSibling.previousSibling.previousSibling.innerHTML = `<input type="text" placeholder='Edytuj zadanie...' style='text-align:center'></input>`
+            this.czyupdate = true;
+            this.click();
+        }
+        this.czypdate = false;
+        Query.updateTask(this.id, e.target.parentNode.previousSibling.previousSibling.previousSibling.previousSibling.firstChild.value);
+        location.reload();
 
     }
     }
