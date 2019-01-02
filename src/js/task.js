@@ -10,7 +10,7 @@ class Task {
         this.bgcolor = bgcolor;
         this.element = document.createElement("div");
         this.id = id;
-        this.element.className = `btn btn-primary btn-lg btn-block ${this.bgcolor}`
+        this.element.className = `btn btn-lg btn-block ${this.bgcolor}`
         this.element.onclick = this.click;
         this.refreshView=refreshView;
         this.czyupdate = false;
