@@ -8,6 +8,7 @@ class taskGroup {
         this.taskGroupName = taskGroupName;
         this.taskGroupStyle = taskGroupStyle;// customowe style do napisana w SCSS tu tylko przekazać nazwe klasy, ewentualnie mozna to wywalić i ostylować ID
         this.taskList = taskList;
+        this.taskGroupList = [];
         this.bgcolor = bgcolor; //kolor tła z bootstrapa
         this.element = document.createElement("div");
         this.element.id = this.taskGroupID;
@@ -15,12 +16,20 @@ class taskGroup {
         this.element.onclick = this.click;
     }
     click = () => {
-        const taskView = new TaskView(this.taskGroupName, this.bgcolor, this.taskList);
-        taskView.render();
+        new TaskView(this.taskGroupID, this.taskGroupName, this.bgcolor, this.taskList);
+        // taskView.render();
     }
     render() {
         const progress = Math.round((4 / this.taskList.length) * 100); //zamiast tej '4' będize trzeba dodać zmienną z ilościa wykonanych tasków
         console.log(progress);
+        this.taskGroupList = [];
+        for (let task of this.taskList) {
+            if (task.groupType == this.taskGroupID) {
+                this.taskGroupList.push(task);
+            }
+        }
+
+
         // Oczywiscie caly ten HTML można zmienić ja to zakodowalem tylko by pokazać koncepcje
         if (this.taskGroupStyle == 'list') {
             this.element.innerHTML = `<i class="fas fa-clipboard-list"></i>
@@ -30,7 +39,7 @@ class taskGroup {
                                             <div class = "progressBarBorder"></div>
                                             <div class = "progressBarProgress barBG${this.bgcolor}" style = "width: ${progress}%"></div>
                                         </div>
-                                        <h4>4/${this.taskList.length}</h4>`
+                                        <h4>4/${this.taskGroupList.length}</h4>`
             document.getElementById('root').appendChild(this.element);
         }
         else {

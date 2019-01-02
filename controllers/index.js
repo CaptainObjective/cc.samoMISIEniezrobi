@@ -18,22 +18,24 @@ const getIndexTest = (req, res) => {
 }
 const postIndex = (req, res) => {
     const newTodo = new Todo({
-        title: req.body.title
+        title: req.body.title,
+        groupType: req.body.groupType,
+        importance: req.body.importance,
+        isDone: req.body.isDone,
     });
     newTodo.save((err) => {
         if (err) console.log(err);
 
     })
     res.redirect('/');
-    res.send('added');
+    // res.send('added');
 }
 
 const deleteIndex = (req, res) => {
     const { id } = req.params;
     Todo.findByIdAndDelete(id, (err) => {
         if (err) console.log(err);
-        res.redirect('/');
-        res.end();
+        res.send('Deleted');
     });
 
 }

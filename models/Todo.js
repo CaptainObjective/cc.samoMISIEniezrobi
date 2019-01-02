@@ -9,6 +9,7 @@ const todoSchema = new mongoose.Schema({
         type: Number,
         enum: [1, 2, 3], // 1 - main priority / 2 - less important // 3 - don't really have to be done quickly
         default: 1,
+        required: true,
     },
     isDone: {
         type: Boolean,

@@ -5,11 +5,16 @@ class MainView {
     constructor(taskList) {
         console.log('MainView Loaded...');
         console.log(taskList);// mainView otrzymuje całą liste tasków; Pamietać by przekazać ją dalej
-
-        this.work = new TaskGroup(`work`, 'Praca', 'list', 'pink', taskList);
+        this.work = new TaskGroup(`job`, 'Praca', 'list', 'pink', taskList);
         this.shop = new TaskGroup(`shop`, 'Lista zakupów', 'list', 'orange', taskList);
-        this.visit = new TaskGroup(`visit`, 'Do Odwiedzenia', 'list', 'green', taskList);
+        this.visit = new TaskGroup(`toVisit`, 'Do Odwiedzenia', 'list', 'green', taskList);
         //this.add = new TaskGroup('', 'Dodaj', 'add', 'blue', 0);
+    }
+
+    static refreshWork = (taskList) => {
+        const work = new TaskGroup(`Work`, 'Praca', 'list', 'pink', taskList);
+        document.getElementById('root').innerHTML = "";
+        work.render();
     }
 
     render() {

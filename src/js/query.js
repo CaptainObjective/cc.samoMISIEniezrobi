@@ -25,7 +25,7 @@ class Query {
         //return tasks
     }
 
-    static addTask(taskName) {
+    static addTask(taskName, groupType = "job", importance = 2, isDone = false) {
         //Zapytanie typu post
         fetch('/addme', { // to jest tylko testowy endpoint w normalnym trzeba będzie zmienić
             method: 'post',
@@ -33,8 +33,13 @@ class Query {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ "title": `${taskName}` })
-         }).then((res) => console.log(res))
+            body: JSON.stringify({
+                "groupType": `${groupType}`,
+                "importance": `${importance}`,
+                "isDone": `${isDone}`,
+                "title": `${taskName}`
+            })
+        }).then((res) => console.log(res))
     }
     //jak przyjdzie status 200 
 
@@ -42,7 +47,13 @@ class Query {
         //Zapytanie typu delete
         fetch(`/deleteme/${taskID}`, {
             method: 'delete'
-        }).then(console.log('Task Deleted'));
+        }).then(resp => {
+            console.log(resp.status);
+            // this.getTask().then(tasks => {
+            //     // MainView.refreshWork(tasks);
+            //     new TaskView('Praca', 'pink', tasks)
+            // })
+        }).catch(err => console.error(err));
     }
 
     static updateTask(taskID, taskName) {
