@@ -27,47 +27,48 @@ class Query {
 
     static addTask(taskName, groupType = "job", importance = 2, isDone = false) {
         //Zapytanie typu post
-        fetch('/addme', { // to jest tylko testowy endpoint w normalnym trzeba będzie zmienić
-            method: 'post',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                "groupType": `${groupType}`,
-                "importance": `${importance}`,
-                "isDone": `${isDone}`,
-                "title": `${taskName}`
-            })
-        }).then((res) => console.log(res))
+        return new Promise((resolve, reject) => {
+            fetch('/addme', { // to jest tylko testowy endpoint w normalnym trzeba będzie zmienić
+                method: 'post',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "groupType": `${groupType}`,
+                    "importance": `${importance}`,
+                    "isDone": `${isDone}`,
+                    "title": `${taskName}`
+                })
+            }).then((res) => resolve(res))
+        })
     }
     //jak przyjdzie status 200 
 
     static deleteTask(taskID) {
         //Zapytanie typu delete
-        fetch(`/deleteme/${taskID}`, {
-            method: 'delete'
-        }).then(resp => {
-            console.log(resp.status);
-            // this.getTask().then(tasks => {
-            //     // MainView.refreshWork(tasks);
-            //     new TaskView('Praca', 'pink', tasks)
-            // })
-        }).catch(err => console.error(err));
+        return new Promise((resolve, reject) => {
+            fetch(`/deleteme/${taskID}`, {
+                method: 'delete'
+            }).then(resp => {
+                resolve(resp.status);
+            }).catch(err => console.error(err));
+        })
     }
 
     static updateTask(taskID, taskName) {
         //Zapytanie typu update jak sie uda
-        fetch(`/editme/${taskID}`, { // to jest tylko testowy endpoint w normalnym trzeba będzie zmienić
-            method: 'put',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ "title": `${taskName}` })
-        }).then((res) => console.log(res))
+        return new Promise((resolve, reject) => {
+            fetch(`/editme/${taskID}`, { // to jest tylko testowy endpoint w normalnym trzeba będzie zmienić
+                method: 'put',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ "title": `${taskName}` })
+            }).then((res) => resolve(res))
+        })
     }
-
     //to poniżej na deser
     static getTaskGroup() {
         //Zapytanie typu get

@@ -21,8 +21,7 @@ class Task {
     click = (e) => {
         //co ma sie zadziać po kliknieciu
         if (e.target.className === "icons _add") {
-            Query.addTask(e.target.parentNode.nextSibling.nextSibling.firstChild.value, this.taskGroup, 2, false);
-            this.refreshView();
+            Query.addTask(e.target.parentNode.nextSibling.nextSibling.firstChild.value, this.taskGroup, 2, false).then(() => { this.refreshView() })
             // location.reload();
         }
         if (e.target.className === "icons check") {
@@ -32,8 +31,7 @@ class Task {
         }
         else if (e.target.className === "icons rubbish") {
 
-            Query.deleteTask(this.id);
-            this.refreshView();
+            Query.deleteTask(this.id).then(() => { this.refreshView() })
             // location.reload();
 
 
