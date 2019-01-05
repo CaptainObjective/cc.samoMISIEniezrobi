@@ -19,15 +19,26 @@ class taskGroup {
         new TaskView(this.taskGroupID, this.taskGroupName, this.bgcolor, this.taskList);
         // taskView.render();
     }
+
+    countDone = () => {
+        let counter = 0;
+        for(let i = 0; i < this.taskGroupList.length; i++){
+            if(this.taskGroupList[i].isDone === true) counter++;
+        }
+        return counter;
+    }
+
     render() {
-        const progress = Math.round((4 / this.taskList.length) * 100); //zamiast tej '4' będize trzeba dodać zmienną z ilościa wykonanych tasków
-        console.log(progress);
+        const tasksDone = this.countDone();
+        const progress = Math.round((tasksDone/ this.taskList.length) * 100); //zamiast tej '4' będize trzeba dodać zmienną z ilościa wykonanych tasków
         this.taskGroupList = [];
         for (let task of this.taskList) {
             if (task.groupType == this.taskGroupID) {
                 this.taskGroupList.push(task);
             }
         }
+
+        console.log(this.taskGroupList)
 
 
         // Oczywiscie caly ten HTML można zmienić ja to zakodowalem tylko by pokazać koncepcje
@@ -39,7 +50,7 @@ class taskGroup {
                                             <div class = "progressBarBorder"></div>
                                             <div class = "progressBarProgress barBG${this.bgcolor}" style = "width: ${progress}%"></div>
                                         </div>
-                                        <h4>4/${this.taskGroupList.length}</h4>`
+                                        <h4>${tasksDone}/${this.taskGroupList.length}</h4>`
             document.getElementById('root').appendChild(this.element);
         }
         else {
