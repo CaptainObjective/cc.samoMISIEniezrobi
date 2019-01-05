@@ -30,7 +30,7 @@ class taskGroup {
 
     render() {
         const tasksDone = this.countDone();
-        const progress = Math.round((tasksDone/ this.taskList.length) * 100); //zamiast tej '4' będize trzeba dodać zmienną z ilościa wykonanych tasków
+        const progress = Math.round((tasksDone/ this.taskList.length) * 100); 
         this.taskGroupList = [];
         for (let task of this.taskList) {
             if (task.groupType == this.taskGroupID) {

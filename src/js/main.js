@@ -1,18 +1,14 @@
 import 'bootstrap';
 import './../scss/app.scss';
-import Query from './query';
-import MainView from './mainView';
+import Login from './login';
+// import MainView from './mainView';
 
 
 const onload = () => {
     console.log('Loading...');
 
-
-    Query.getTask().then(tasks => {
-        const mainView = new MainView(tasks);
-        mainView.render();
-    })
-
+        const login = new Login();
+        login.render();
 }
 
 window.addEventListener('load', onload);

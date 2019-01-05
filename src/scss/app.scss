@@ -245,3 +245,41 @@ body{
          height: 90%;
          display: inline-block;
      }
+
+//logowanie
+
+.login{
+    width: 40%;
+    height: 40%;
+    background-color: $orange;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    h2{
+        color: $darkOrange;
+    }
+    form{
+        display: flex;
+        flex-flow: column;
+        input[type=text]{
+            border: 2px solid $darkOrange;
+            padding: 2px;
+            margin: 10px 0;
+        }
+        button{
+            background-color: $darkOrange;
+            color: $orange;
+            border: 2px solid $darkOrange;
+            border-radius: 3px;
+            outline: none;
+            &:hover{
+                cursor: pointer;
+                background-color: darken($darkOrange, 5);
+                color: darken($orange, 5);
+                border-color: darken($darkOrange, 5);
+            }
+        }
+    }
+}

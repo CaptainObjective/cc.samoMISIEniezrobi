@@ -8,7 +8,6 @@ class MainView {
         this.work = new TaskGroup(`job`, 'Praca', 'list', 'pink', taskList);
         this.shop = new TaskGroup(`shop`, 'Lista zakupów', 'list', 'orange', taskList);
         this.visit = new TaskGroup(`toVisit`, 'Do Odwiedzenia', 'list', 'green', taskList);
-        //this.add = new TaskGroup('', 'Dodaj', 'add', 'blue', 0);
     }
 
     static refreshWork = (taskList) => {
