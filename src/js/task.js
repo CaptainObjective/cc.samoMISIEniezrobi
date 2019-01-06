@@ -19,15 +19,6 @@ class Task {
         this.czyupdate = false;
     }
 
-    donedone (){
-        let e = document.querySelector('.icons check');
-        console.log(e);
-        if (this.donetask===true){
-             e.parentNode.nextSibling.nextSibling.style.textDecoration = "line-through";
-             e.src = `${bear}`;
-        }
-        
-    }
 
     click = (e) => {
         //co ma sie zadziać po kliknieciu
@@ -67,8 +58,12 @@ class Task {
     // Query.test();
 
     render() {
-        this.element.innerHTML = `<button class="button"><img class="icons check" src="${check}"/></button>
-        <p>${this.name}</p>
+
+        let source = this.donetask === true ? bear : check; 
+        let decor = this.donetask === true ? "text-decoration: line-through" : "text-decoration: none";
+
+        this.element.innerHTML = `<button class="button"><img class="icons check" src="${source}"/></button>
+        <p style="${decor}">${this.name}</p>
         <button class="button"> <img  class="icons rubbish"  src="${rubbish}"/></button> <button class="button">
         <img class="icons change" src="${change}"/></button>`;
 
@@ -79,7 +74,6 @@ class Task {
 
         document.getElementById('root').appendChild(this.element);
 
-        this.donedone();
     }
 }
 
