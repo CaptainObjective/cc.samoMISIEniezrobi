@@ -16,17 +16,16 @@ class Query {
         }).then((res) => res.json()).then(data => console.log(data)).catch(error => console.error(error));
     }
 
-    static getTask() {
-        //Zapytanie typu get
-        //Samo getTask musi byc promisem a nie zwykla funkcja zeby wszystko dzialalo jak nalezy
+    static getTask(login) {
         return new Promise((resolve, reject) => {
-            fetch('tasks').then((res) => res.json()).then(data => resolve(data)).catch(error => reject(error));
+            fetch(`/tasks/${login}`).then((res) => res.json()).then(data => resolve(data)).catch(error => reject(error));
         })
         //return tasks
     }
 
-    static addTask(taskName, groupType = "job", importance = 2, isDone = false) {
+    static addTask(taskName, groupType = "job", importance = 2, isDone = false, user) {
         //Zapytanie typu post
+        console.log('query', user);
         return new Promise((resolve, reject) => {
             fetch('/addme', { // to jest tylko testowy endpoint w normalnym trzeba będzie zmienić
                 method: 'post',
@@ -35,6 +34,7 @@ class Query {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
+                    "user": `${user}`,
                     "groupType": `${groupType}`,
                     "importance": `${importance}`,
                     "isDone": `${isDone}`,

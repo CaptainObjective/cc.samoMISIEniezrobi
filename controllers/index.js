@@ -1,7 +1,7 @@
 const Todo = require('../models/Todo');
 
 const getIndex = (req, res) => {
-    Todo.find({}, (err, todos) => {
+    Todo.find({ user: req.params.user }, (err, todos) => {
         if (err) console.log(err);
         console.log(todos);
         // res.render('index.html', {
@@ -22,6 +22,7 @@ const postIndex = (req, res) => {
         groupType: req.body.groupType,
         importance: req.body.importance,
         isDone: req.body.isDone,
+        user: req.body.user
     });
     newTodo.save((err) => {
         if (err) console.log(err);

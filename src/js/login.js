@@ -14,10 +14,10 @@ class Login {
         e.preventDefault();
         if (e.target.className === 'logBtn') {
             let login = document.getElementById('login').value;
-            Query.getTask().then(tasks => {
-                this.login = login;
-                window.location.hash = login;
-                const mainView = new MainView(tasks, login);
+            this.login = login;
+            Query.getTask(this.login).then(tasks => {
+                window.location.hash = this.login;
+                const mainView = new MainView(tasks, this.login);
                 mainView.render();
             })
         };

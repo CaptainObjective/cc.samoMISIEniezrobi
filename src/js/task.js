@@ -6,7 +6,7 @@ import Query from './query';
 
 class Task {
 
-    constructor(name, bgcolor, id, taskGroup, refreshView = null) {
+    constructor(name, bgcolor, id, taskGroup, login, refreshView = null) {
         this.name = name;
         this.bgcolor = bgcolor;
         this.element = document.createElement("div");
@@ -14,6 +14,7 @@ class Task {
         this.element.className = `btn btn-lg btn-block ${this.bgcolor}`
         this.element.onclick = this.click;
         this.taskGroup = taskGroup;
+        this.login = login;
         this.refreshView = refreshView;
         this.czyupdate = false;
     }
@@ -21,7 +22,7 @@ class Task {
     click = (e) => {
         //co ma sie zadziać po kliknieciu
         if (e.target.className === "icons _add") {
-            Query.addTask(e.target.parentNode.nextSibling.nextSibling.firstChild.value, this.taskGroup, 2, false).then(() => { this.refreshView() })
+            Query.addTask(e.target.parentNode.nextSibling.nextSibling.firstChild.value, this.taskGroup, 2, false, this.login).then(() => { this.refreshView() })
             // location.reload();
         }
         if (e.target.className === "icons check") {
@@ -45,8 +46,7 @@ class Task {
                 this.click();
             }
             this.czypdate = false;
-            Query.updateTask(this.id, e.target.parentNode.previousSibling.previousSibling.previousSibling.previousSibling.firstChild.value);
-            this.refreshView();
+            Query.updateTask(this.id, e.target.parentNode.previousSibling.previousSibling.previousSibling.previousSibling.firstChild.value).then(() => { this.refreshView() })
             // location.reload();
 
         }

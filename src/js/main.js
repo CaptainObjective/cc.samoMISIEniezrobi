@@ -13,15 +13,13 @@ const onload = () => {
 }
 
 const router = () => {
-    console.log(window.location.hash);
-    login != null && console.log(('#' + login.login));
     switch (window.location.hash) {
         case '':
             onload();
             break;
         case ('#' + login.login):
-            Query.getTask().then(tasks => {
-                const mainView = new MainView(tasks, login);
+            Query.getTask(login.login).then(tasks => {
+                const mainView = new MainView(tasks, login.login);
                 mainView.render();
             })
             break;

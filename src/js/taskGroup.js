@@ -2,35 +2,37 @@ import TaskView from './taskView';
 
 class taskGroup {
 
-    constructor(taskGroupID, taskGroupName, taskGroupStyle, bgcolor, taskList) {
+    constructor(taskGroupID, taskGroupName, taskGroupStyle, bgcolor, taskList, login) {
         console.log('taskGroup Loaded...');
         this.taskGroupID = taskGroupID;
         this.taskGroupName = taskGroupName;
         this.taskGroupStyle = taskGroupStyle;
         this.taskList = taskList;
         this.taskGroupList = [];
-        this.bgcolor = bgcolor; 
+        this.bgcolor = bgcolor;
         this.element = document.createElement("div");
         this.element.id = this.taskGroupID;
         this.element.className = `${this.taskGroupStyle} ${this.bgcolor}`
         this.element.onclick = this.click;
+        this.login = login;
+        console.log(login);
     }
     click = () => {
-        new TaskView(this.taskGroupID, this.taskGroupName, this.bgcolor, this.taskList);
+        new TaskView(this.taskGroupID, this.taskGroupName, this.bgcolor, this.taskList, this.login);
         // taskView.render();
     }
 
     countDone = () => {
         let counter = 0;
-        for(let i = 0; i < this.taskGroupList.length; i++){
-            if(this.taskGroupList[i].isDone === true) counter++;
+        for (let i = 0; i < this.taskGroupList.length; i++) {
+            if (this.taskGroupList[i].isDone === true) counter++;
         }
         return counter;
     }
 
     render() {
         const tasksDone = this.countDone();
-        const progress = Math.round((tasksDone/ this.taskList.length) * 100); 
+        const progress = Math.round((tasksDone / this.taskList.length) * 100);
         this.taskGroupList = [];
         for (let task of this.taskList) {
             if (task.groupType == this.taskGroupID) {

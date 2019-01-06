@@ -3,11 +3,12 @@ import Query from './query';
 
 class TaskView {
 
-    constructor(taskGroup, name, bgcolor, taskList) {
+    constructor(taskGroup, name, bgcolor, taskList, login) {
         this.taskObjectsList = []; //pusta tablica przechowuje obiekty utworzene w refresh tasks
         this.bgcolor = bgcolor; //kolor tła z bootstrapa
         this.taskList = []; //Lista wszystkich taskow
         this.taskGroup = taskGroup;
+        this.login = login;
         window.location.hash = name;
         console.log('TaskView Loaded...');
         this.refresh();
@@ -20,10 +21,10 @@ class TaskView {
         })
     }
     refresh = () => {
-        Query.getTask().then(tasks => {
+        Query.getTask(this.login).then(tasks => {
             this.taskList = [];
             for (let task of tasks) {
-                console.log(task.groupType);
+                // console.log(task.groupType);
                 if (task.groupType == this.taskGroup) {
                     this.taskList.push(task);
                 }
@@ -31,9 +32,9 @@ class TaskView {
             this.taskObjectsList = [];
             // console.log(this.refresh);
             this.taskList.forEach((element, i) => {
-                this.taskObjectsList.push(new Task(element.title, this.bgcolor, element._id, this.taskGroup, this.refresh))
+                this.taskObjectsList.push(new Task(element.title, this.bgcolor, element._id, this.taskGroup, this.login, this.refresh))
             });
-            this.taskObjectsList.push(new Task("Nowe zadanko", this.bgcolor, "add new", this.taskGroup, this.refresh));
+            this.taskObjectsList.push(new Task("Nowe zadanko", this.bgcolor, "add new", this.taskGroup, this.login, this.refresh));
             this.render();
         })
     }

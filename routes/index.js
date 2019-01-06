@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router();
 const indexController = require('../controllers/index');
 const editController = require('../controllers/edit');
-router.get('/tasks', indexController.getIndex);
+router.get('/tasks/:user', indexController.getIndex);
 router.post('/test', indexController.getIndexTest);
 
 router.post('/addme', indexController.postIndex);
