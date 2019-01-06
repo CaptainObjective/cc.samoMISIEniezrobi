@@ -2,7 +2,7 @@ import TaskGroup from './taskGroup';
 
 class MainView {
 
-    constructor(taskList) {
+    constructor(taskList, login = 'default') {
         console.log('MainView Loaded...');
         console.log(taskList);// mainView otrzymuje całą liste tasków; Pamietać by przekazać ją dalej
         this.work = new TaskGroup(`job`, 'Praca', 'list', 'pink', taskList);
