@@ -7,7 +7,6 @@ class Login{
         this.element = document.createElement("div");
         this.element.className = 'login';
         this.element.onclick = this.click;
-        //this.status = status;
     }
 
     click = (e) =>{

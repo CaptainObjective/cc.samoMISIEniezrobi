@@ -21,7 +21,6 @@ class MainView {
         this.work.render();
         this.shop.render();
         this.visit.render();
-        //this.add.render();
         //To Do: kolejna/e karta z zadaniami wg schematu
         //Może by kiedyś dodać zawsze na ostatnim miejscu karte z plusikiem która pozwoli robić nowe grupy tasków (zobaczymy na co backend pozwoli)
     }

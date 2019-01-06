@@ -6,10 +6,10 @@ class taskGroup {
         console.log('taskGroup Loaded...');
         this.taskGroupID = taskGroupID;
         this.taskGroupName = taskGroupName;
-        this.taskGroupStyle = taskGroupStyle;// customowe style do napisana w SCSS tu tylko przekazać nazwe klasy, ewentualnie mozna to wywalić i ostylować ID
+        this.taskGroupStyle = taskGroupStyle;
         this.taskList = taskList;
         this.taskGroupList = [];
-        this.bgcolor = bgcolor; //kolor tła z bootstrapa
+        this.bgcolor = bgcolor; 
         this.element = document.createElement("div");
         this.element.id = this.taskGroupID;
         this.element.className = `${this.taskGroupStyle} ${this.bgcolor}`
@@ -38,10 +38,6 @@ class taskGroup {
             }
         }
 
-        console.log(this.taskGroupList)
-
-
-        // Oczywiscie caly ten HTML można zmienić ja to zakodowalem tylko by pokazać koncepcje
         if (this.taskGroupStyle == 'list') {
             this.element.innerHTML = `<i class="fas fa-clipboard-list"></i>
                                         <h2>${this.taskGroupName}</h2>

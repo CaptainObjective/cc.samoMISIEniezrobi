@@ -1,8 +1,6 @@
 import 'bootstrap';
 import './../scss/app.scss';
 import Login from './login';
-// import MainView from './mainView';
-
 
 const onload = () => {
     console.log('Loading...');
