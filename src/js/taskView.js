@@ -10,7 +10,7 @@ class TaskView {
         this.taskGroup = taskGroup;
         this.login = login;
         window.location.hash = name;
-        console.log('TaskView Loaded...');
+        // console.log('TaskView Loaded...');
         this.refresh();
     }
     render = () => {
@@ -34,7 +34,7 @@ class TaskView {
             this.taskList.forEach((element, i) => {
                 this.taskObjectsList.push(new Task(element.title, this.bgcolor, element._id, this.taskGroup, element.isDone, this.login, this.refresh))
             });
-            this.taskObjectsList.push(new Task("Nowe zadanko", this.bgcolor, "add new", this.taskGroup, this.login, this.refresh));
+            this.taskObjectsList.push(new Task("Nowe zadanko", this.bgcolor, "add new", this.taskGroup, false, this.login, this.refresh));
             this.render();
         })
     }

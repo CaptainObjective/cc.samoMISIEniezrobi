@@ -3,7 +3,7 @@ import TaskView from './taskView';
 class taskGroup {
 
     constructor(taskGroupID, taskGroupName, taskGroupStyle, bgcolor, taskList, login) {
-        console.log('taskGroup Loaded...');
+        // console.log('taskGroup Loaded...');
         this.taskGroupID = taskGroupID;
         this.taskGroupName = taskGroupName;
         this.taskGroupStyle = taskGroupStyle;
@@ -15,7 +15,6 @@ class taskGroup {
         this.element.className = `${this.taskGroupStyle} ${this.bgcolor}`
         this.element.onclick = this.click;
         this.login = login;
-        console.log(login);
     }
     click = () => {
         new TaskView(this.taskGroupID, this.taskGroupName, this.bgcolor, this.taskList, this.login);
@@ -31,15 +30,14 @@ class taskGroup {
     }
 
     render() {
-        const tasksDone = this.countDone();
-        const progress = Math.round((tasksDone / this.taskList.length) * 100);
         this.taskGroupList = [];
         for (let task of this.taskList) {
             if (task.groupType == this.taskGroupID) {
                 this.taskGroupList.push(task);
             }
         }
-
+        const tasksDone = this.countDone();
+        const progress = (tasksDone / this.taskGroupList.length) * 100
         if (this.taskGroupStyle == 'list') {
             this.element.innerHTML = `<i class="fas fa-clipboard-list"></i>
                                         <h2>${this.taskGroupName}</h2>

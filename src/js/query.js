@@ -25,7 +25,6 @@ class Query {
 
     static addTask(taskName, groupType = "job", importance = 2, isDone = false, user) {
         //Zapytanie typu post
-        console.log('query', user);
         return new Promise((resolve, reject) => {
             fetch('/addme', { // to jest tylko testowy endpoint w normalnym trzeba będzie zmienić
                 method: 'post',
@@ -56,7 +55,7 @@ class Query {
         })
     }
 
-    static updateTask(taskID, taskName, isDone=false) {
+    static updateTask(taskID, taskName, isDone = false) {
         //Zapytanie typu update jak sie uda
         return new Promise((resolve, reject) => {
             fetch(`/editme/${taskID}`, { // to jest tylko testowy endpoint w normalnym trzeba będzie zmienić

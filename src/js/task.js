@@ -30,8 +30,7 @@ class Task {
         if (e.target.className === "icons check") {
             e.target.parentNode.nextSibling.nextSibling.style.textDecoration = "line-through";
             e.target.src = `${bear}`;
-            Query.updateTask(this.id, this.name, true);
-            this.refreshView();
+            Query.updateTask(this.id, this.name, true).then(() => { this.refreshView() })
 
         }
         else if (e.target.className === "icons rubbish") {
