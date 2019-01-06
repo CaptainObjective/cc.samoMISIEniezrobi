@@ -32,7 +32,7 @@ class TaskView {
             this.taskObjectsList = [];
             // console.log(this.refresh);
             this.taskList.forEach((element, i) => {
-                this.taskObjectsList.push(new Task(element.title, this.bgcolor, element._id, this.taskGroup, this.login, this.refresh))
+                this.taskObjectsList.push(new Task(element.title, this.bgcolor, element._id, this.taskGroup, element.isDone, this.login, this.refresh))
             });
             this.taskObjectsList.push(new Task("Nowe zadanko", this.bgcolor, "add new", this.taskGroup, this.login, this.refresh));
             this.render();

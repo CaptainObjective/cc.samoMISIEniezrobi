@@ -6,7 +6,7 @@ import Query from './query';
 
 class Task {
 
-    constructor(name, bgcolor, id, taskGroup, login, refreshView = null) {
+    constructor(name, bgcolor, id, taskGroup, donetask, login, refreshView = null) {
         this.name = name;
         this.bgcolor = bgcolor;
         this.element = document.createElement("div");
@@ -15,9 +15,11 @@ class Task {
         this.element.onclick = this.click;
         this.taskGroup = taskGroup;
         this.login = login;
+        this.donetask = donetask;
         this.refreshView = refreshView;
         this.czyupdate = false;
     }
+
 
     click = (e) => {
         //co ma sie zadziać po kliknieciu
@@ -28,6 +30,8 @@ class Task {
         if (e.target.className === "icons check") {
             e.target.parentNode.nextSibling.nextSibling.style.textDecoration = "line-through";
             e.target.src = `${bear}`;
+            Query.updateTask(this.id, this.name, true);
+            this.refreshView();
 
         }
         else if (e.target.className === "icons rubbish") {
@@ -54,8 +58,12 @@ class Task {
     // Query.test();
 
     render() {
-        this.element.innerHTML = `<button class="button"><img class="icons check" src="${check}"/></button>
-        <p>${this.name}</p> 
+
+        let source = this.donetask === true ? bear : check;
+        let decor = this.donetask === true ? "text-decoration: line-through" : "text-decoration: none";
+
+        this.element.innerHTML = `<button class="button"><img class="icons check" src="${source}"/></button>
+        <p style="${decor}">${this.name}</p>
         <button class="button"> <img  class="icons rubbish"  src="${rubbish}"/></button> <button class="button">
         <img class="icons change" src="${change}"/></button>`;
 
@@ -65,6 +73,7 @@ class Task {
         <p><input type="text" placeholder="${this.name}"/></p>`);
 
         document.getElementById('root').appendChild(this.element);
+
     }
 }
 

@@ -13,7 +13,8 @@ const getEdit = (req,res) =>{
 const putEdit = (req, res) =>{
 const {id} = req.params;
 const {title} = req.body;
-Todo.findByIdAndUpdate(id, {title:title}, (err)=>{
+const {isDone} = req.body;
+Todo.findByIdAndUpdate(id, {title:title, isDone:isDone}, (err)=>{
     if (err) console.log(err);
     res.redirect ('/');
     
