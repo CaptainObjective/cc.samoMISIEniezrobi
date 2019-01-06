@@ -56,7 +56,7 @@ class Query {
         })
     }
 
-    static updateTask(taskID, taskName) {
+    static updateTask(taskID, taskName, isDone=false) {
         //Zapytanie typu update jak sie uda
         return new Promise((resolve, reject) => {
             fetch(`/editme/${taskID}`, { // to jest tylko testowy endpoint w normalnym trzeba będzie zmienić
@@ -65,7 +65,7 @@ class Query {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ "title": `${taskName}` })
+                body: JSON.stringify({ "title": `${taskName}`, "isDone": `${isDone}` })
             }).then((res) => resolve(res))
         })
     }

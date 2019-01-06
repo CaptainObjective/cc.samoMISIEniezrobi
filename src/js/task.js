@@ -6,7 +6,7 @@ import Query from './query';
 
 class Task {
 
-    constructor(name, bgcolor, id, taskGroup, refreshView = null) {
+    constructor(name, bgcolor, id, taskGroup, donetask, refreshView = null) {
         this.name = name;
         this.bgcolor = bgcolor;
         this.element = document.createElement("div");
@@ -14,8 +14,19 @@ class Task {
         this.element.className = `btn btn-lg btn-block ${this.bgcolor}`
         this.element.onclick = this.click;
         this.taskGroup = taskGroup;
+        this.donetask = donetask;
         this.refreshView = refreshView;
         this.czyupdate = false;
+    }
+
+    donedone (){
+        let e = document.querySelector('.icons check');
+        console.log(e);
+        if (this.donetask===true){
+             e.parentNode.nextSibling.nextSibling.style.textDecoration = "line-through";
+             e.src = `${bear}`;
+        }
+        
     }
 
     click = (e) => {
@@ -27,7 +38,9 @@ class Task {
         if (e.target.className === "icons check") {
             e.target.parentNode.nextSibling.nextSibling.style.textDecoration = "line-through";
             e.target.src = `${bear}`;
-
+            Query.updateTask(this.id, this.name, true);
+            this.refreshView();
+            
         }
         else if (e.target.className === "icons rubbish") {
 
@@ -44,7 +57,7 @@ class Task {
                 this.czyupdate = true;
                 this.click();
             }
-            this.czypdate = false;
+            this.czyupdate = false;
             Query.updateTask(this.id, e.target.parentNode.previousSibling.previousSibling.previousSibling.previousSibling.firstChild.value);
             this.refreshView();
             // location.reload();
@@ -55,7 +68,7 @@ class Task {
 
     render() {
         this.element.innerHTML = `<button class="button"><img class="icons check" src="${check}"/></button>
-        <p>${this.name}</p> 
+        <p>${this.name}</p>
         <button class="button"> <img  class="icons rubbish"  src="${rubbish}"/></button> <button class="button">
         <img class="icons change" src="${change}"/></button>`;
 
@@ -65,6 +78,8 @@ class Task {
         <p><input type="text" placeholder="${this.name}"/></p>`);
 
         document.getElementById('root').appendChild(this.element);
+
+        this.donedone();
     }
 }
 
